@@ -1,0 +1,156 @@
+<!-- v6  June 2026 
+     An svg file defines lines, shapes and fonts. AI was used to do the tedious layout tasks to make this clock face.
+     It also read all the manuals to see how to do it, so I didn't have to, but now you can modify the code.
+     Other elements were added, but you can remove them with comments as you see around this text block.
+     This file prints aligned and sized properly in ms-edge, with room at sides for scotch tape.
+     To get ms-edge to print desired diameter and offset-x, in viewbox tag, manually increase width,height and 
+     then increase viewbox-x to center it (increasing moves everything left!). Test with edge print dialog-it shows a preview. 
+     To install, cut out a hole for the shafts and cut a slot to mount; tape the slot, and now do alignment:
+       Reset the clock so hands go to 12:00 while it waits for a signal and align dial but don't tape down. Next day hands should show
+       the true time: at exact minute, assure that minute hand is correctly over the tick, AND the shafts are exactly in the 
+       alignment crosshair. Then tape down, sparingly, as you may have it wrong.
+     Tip: to get wwvb signal from Colorado, align clock perpendicular to Colorado, as the ferrite rod antenna is aligned sideways to
+       the radio wave, and thus gets maximum entergy. 
+-->
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="32 0 400 400" width="13.5in" height="13.5in" >
+  <circle cx="200" cy="200" r="220" fill="#ffffff" />
+
+  <!--
+  <defs>
+    <polygon id="hour-triangle-black" points="200,50 194,30 206,30" fill="#000000" />
+    <polygon id="hour-triangle-red" points="200,50 194,30 206,30" fill="#8b0000" />
+  </defs>
+  <defs>
+    <polygon id="hour-triangle-black" points="200,56 192.2,30 207.8,30" fill="#000000" />
+    <polygon id="hour-triangle-red" points="200,56 192.2,30 207.8,30" fill="#8b0000" />
+  </defs>
+  -->
+  <defs>
+    <polygon id="hour-triangle-black" points="200,53 193.1,30 206.9,30" fill="#000000" />
+    <polygon id="hour-triangle-red" points="200,53 193.1,30 206.9,30" fill="#8b0000" />
+  </defs>
+
+  <g transform="scale(1.08)" transform-origin="200 200)">
+    <use href="#hour-triangle-red" transform="rotate(0 200 200)" />
+    <use href="#hour-triangle-black" transform="rotate(30 200 200)" />
+    <use href="#hour-triangle-black" transform="rotate(60 200 200)" />
+    <use href="#hour-triangle-red" transform="rotate(90 200 200)" />
+    <use href="#hour-triangle-black" transform="rotate(120 200 200)" />
+    <use href="#hour-triangle-black" transform="rotate(150 200 200)" />
+    <use href="#hour-triangle-red" transform="rotate(180 200 200)" />
+    <use href="#hour-triangle-black" transform="rotate(210 200 200)" />
+    <use href="#hour-triangle-black" transform="rotate(240 200 200)" />
+    <use href="#hour-triangle-red" transform="rotate(270 200 200)" />
+    <use href="#hour-triangle-black" transform="rotate(300 200 200)" />
+    <use href="#hour-triangle-black" transform="rotate(330 200 200)" />
+
+    <g stroke="#000000" stroke-width="2.66" stroke-linecap="round">
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(6 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(12 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(18 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(24 200 200)" />
+      
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(36 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(42 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(48 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(54 200 200)" />
+      
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(66 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(72 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(78 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(84 200 200)" />
+
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(96 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(102 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(108 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(114 200 200)" />
+      
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(126 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(132 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(138 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(144 200 200)" />
+      
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(156 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(162 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(168 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(174 200 200)" />
+
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(186 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(192 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(198 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(204 200 200)" />
+      
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(216 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(222 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(228 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(234 200 200)" />
+      
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(246 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(252 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(258 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(264 200 200)" />
+
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(276 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(282 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(288 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(294 200 200)" />
+      
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(306 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(312 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(318 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(324 200 200)" />
+      
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(336 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(342 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(348 200 200)" />
+      <line x1="200" y1="30" x2="200" y2="46" transform="rotate(354 200 200)" />
+    </g>
+
+    <!-- crosshairs for centering paper around center -->
+    <g stroke="#aaaaaa" stroke-width="1" stroke-linecap="round">
+      <line x1="200" y1="164.25" x2="200" y2="198" />
+      <line x1="200" y1="164.25" x2="192.93" y2="157.18" />
+      <line x1="200" y1="164.25" x2="207.07" y2="157.18" />
+
+      <line x1="200" y1="202" x2="200" y2="235.75" />
+      <line x1="200" y1="235.75" x2="192.93" y2="242.82" />
+      <line x1="200" y1="235.75" x2="207.07" y2="242.82" />
+
+      <line x1="164.25" y1="200" x2="198" y2="200" />
+      <line x1="164.25" y1="200" x2="157.18" y2="192.93" />
+      <line x1="164.25" y1="200" x2="157.18" y2="207.07" />
+
+      <line x1="202" y1="200" x2="235.75" y2="200" />
+      <line x1="235.75" y1="200" x2="242.82" y2="192.93" />
+      <line x1="235.75" y1="200" x2="242.82" y2="207.07" />
+    </g>
+
+    <!-- circle around 12:00 -->
+    <circle cx="201" cy="81" r="26" fill="none" stroke="#555555" stroke-width="2" />
+
+    <!-- set font for numbers. Any size ok it auto-centers somehow -->
+    <g font-family="system-ui, -apple-system, sans-serif" font-size="37" font-weight="700" text-anchor="middle" dominant-baseline="central">
+      <text x="200" y="78" fill="#8b0000">12</text>
+      <text x="265" y="95" fill="#000000">1</text>
+      <text x="310" y="140" fill="#000000">2</text>
+      <text x="322" y="200" fill="#8b0000">3</text>
+      <text x="310" y="260" fill="#000000">4</text>
+      <text x="265" y="305" fill="#000000">5</text>
+      <text x="200" y="322" fill="#8b0000">6</text>
+      <text x="135" y="305" fill="#000000">7</text>
+      <text x="90" y="260" fill="#000000">8</text>
+      <text x="78" y="200" fill="#8b0000">9</text>
+      <text x="90" y="140" fill="#000000">10</text>
+      <text x="135" y="95" fill="#000000">11</text>
+    </g>
+
+    <text x="200" y="265" font-family="system-ui, -apple-system, sans-serif" font-size="5.5" font-weight="600" fill="#2b2d42" text-anchor="middle">AI May 2026</text>
+
+<!-- 1-inch square with QR code inside made by ai -->
+<rect x="185.185" y="271" width="29.63" height="29.63" fill="none" stroke="#aaaaaa" stroke-width="1"/>
+<image href="https://api.qrserver.com/v1/create-qr-code/?size=256x256&amp;color=bbbbbb&amp;bgcolor=FFFFFF&amp;data=https%3A%2F%2Fgithub.com%2Fmobiwek61%2FsvgClockDial" x="185.185" y="271" width="29.63" height="29.63"/>
+    <!-- circle at center -->
+    <circle cx="200" cy="200" r="6" fill="#aaaaaa" />
+  </g>
+</svg>
