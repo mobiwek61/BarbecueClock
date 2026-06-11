@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+  short demo how to embed an SVG file [graphics] into html document and
+  make it clickable, with actions.
+  To avoid the slow way of learning about it, made Demo using AI with this prompt: 
+  "example of svg file embedded javascript call this svg from html and wire to onclick in html"
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SVG HTML Wire-up</title>
+</head>
+<body>
+  <h1>Wiring SVG to HTML JavaScript</h1>
+  <object id="svg_hello_object" data="hello.SVG" type="image/svg+xml" width="200" height="200"></object>
+  <script>
+    const svgObject = document.querySelector('#svg_hello_object') 
+    svgObject.addEventListener('load', function() {
+      const svgDoc = svgObject.contentDocument;
+      const circle = svgDoc.querySelector('#buttonA');
+      circle.addEventListener('click', function() {
+        circle.setAttribute('fill', '#4CAF50'); 
+      });
+    });
+  </script>
+</body>
+</html>

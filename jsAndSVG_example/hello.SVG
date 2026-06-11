@@ -1,0 +1,30 @@
+
+<!-- accompanies html file for javascript-SVG demo -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+ <!--  <circle 
+    id="buttonA"
+    cx="150" 
+    cy="100" 
+    r="80" 
+    fill="#FF6B6B" 
+    cursor="pointer" 
+  /> -->
+<ellipse 
+  id="buttonA"
+  cx="100" 
+  cy="100" 
+  rx="80"   ry="50"   fill="#FF6B6B" 
+  cursor="pointer" 
+/>
+  <text 
+    x="100" 
+    y="105" 
+    font-family="sans-serif" 
+    font-size="16" 
+    font-weight="bold" 
+    fill="white" 
+    text-anchor="middle" 
+    pointer-events="none">
+    Click Me!
+  </text>
+</svg>
