@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive ES6 SVG Bar Graph</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f4f7f6; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    .container { background: white; padding: 24px; border-radius: 12px; text-align: center; width: 80%; max-width: 800px; }
+    rect { transition: fill 0.2s; } rect:hover { fill: #2563eb; }
+    #chart { width: 100%; } /* Ensure parent div fills out the container */
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Bar Graph</h2>
+    
+    <svg width="100%" height="50" viewBox="0 0 600 50">
+      <text x="300" y="20" text-anchor="middle" font-size="14" fill="#333">
+        <tspan x="300" dy="0">This uses javascript to generate SVG object "mainSVGObject" and populate graph</tspan>
+        <tspan x="300" dy="1.4em">with svg lines from js array</tspan>
+      </text>
+    </svg>
+
+    <div id="chart"></div>
+  </div>
+
+  <script>
+    const data = [45, 22, 55, 95];
+    
+    // 1. Get the real-time width of the parent element
+    const parentWidth = document.getElementById('chart').clientWidth;
+    const height = 250, padding = 50;
+
+    const generateChart = (arr, width) => {
+      const axisY = height - padding;
+      
+      // 2. Math to calculate proportional spacing and widths:
+      const totalAvailableWidth = width - (padding * 2);
+      const totalItems = arr.length;
+      
+      // We reserve 70% of the available slot space for the bar width, 30% for gaps
+      const slotWidth = totalAvailableWidth / totalItems;
+      const barW = slotWidth * 0.7;
+      const spacing = slotWidth * 0.3;
+
+      const barsHTML = arr.map((val, i) => {
+        // Calculate dynamic X coordinate relative to proportional spacing
+        const x = padding + (i * slotWidth) + (spacing / 2);
+        const y = axisY - (val * 1.8); 
+        
+        return `
+          <rect x="${x}" y="${y}" width="${barW}" height="${val * 1.8}" fill="#3b82f6" rx="4"/>
+          <text x="${x + barW/2}" y="${y - 8}" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e293b">${val}</text>
+          <text x="${x + barW/2}" y="${axisY + 20}" text-anchor="middle" font-size="12" fill="#64748b">Item ${i + 1}</text>
+        `;
+      }).join('');
+
+      return `
+        <svg id="mainSVGObject" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+          <line x1="${padding}" y1="${axisY}" x2="${width - padding}" y2="${axisY}" stroke="#cbd5e1" stroke-width="2" />
+          ${barsHTML}
+        </svg>
+      `;
+    };
+
+    // 3. Render initial chart based on container width
+    document.getElementById('chart').innerHTML = generateChart(data, parentWidth);
+
+    // Optional: Re-render automatically if the browser window changes sizes
+    window.addEventListener('resize', () => {
+      const newWidth = document.getElementById('chart').clientWidth;
+      document.getElementById('chart').innerHTML = generateChart(data, newWidth);
+    });
+  </script>
+
+</body>
+</html>
