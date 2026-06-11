@@ -10,4 +10,7 @@
   AI can be used to create snippets for further changes, such as creating QR codes in specific colors, avoiding lots of time reading API documentation.  
 - As do some creepy co-workers, **AI removes your comments(!)**.  
   AI may also prevent you from learning the correct style of coding a system.
-  This happens when it sometimes ignores familiar frameworks setup by the system's engineers. For example, it may choose to do lots of complicated math to do a layout instead of using layout features provided by a framework... not a good example for people to follow unless you have superhuman math ability.   
+  This happens when it sometimes ignores familiar frameworks setup by the system's engineers. For example, it may choose to do lots of complicated math to do a layout instead of using layout features provided by a framework... not a good example for people to follow unless you have superhuman math ability.
+
+#### Example code  
+- so far, folder jsAndSVG_example shows how to mix svg, javascript and user actions together.  
