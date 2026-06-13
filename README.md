@@ -13,4 +13,5 @@
   This happens when it sometimes ignores familiar frameworks setup by the system's engineers. For example, it may choose to do lots of complicated math to do a layout instead of using layout features provided by a framework... not a good example for people to follow unless you have superhuman math ability.
 
 #### Example code  
-- so far, folder jsAndSVG_example shows how to mix svg, javascript and user actions together.  
+- so far, folder jsAndSVG_example shows how to mix svg, javascript and user actions together.
+- another example shows how to embed javascript and svg in an html file so that javascript generates svg objects dynamically. In this case it converts a short array to bar graph by generating svg line objects.
