@@ -1,4 +1,6 @@
 #### An SVG file to print an easy-to-read clock dial for barbecuing.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="clock6.jpg" width="250">
 - High-vis tic marks and exact minute alignment are what you need to barbecue one side for 45 seconds...    
 - Works with the LIDL $8 auto-setting clock.  
 - Prints proper size onto US 8.5x11 paper with ms-edge.  Download file, view in browser and print; don't print or view direct from github as errors will result.  
@@ -16,7 +18,7 @@
 - so far, folder jsAndSVG_example shows how to mix svg, javascript and user actions together.
 - another example shows how to embed javascript and svg in an html file so that javascript generates svg objects dynamically. In this case it converts a short array to bar graph by generating svg line objects.
 
-<img src="clock6.jpg" width="300">
+
 
 
 
