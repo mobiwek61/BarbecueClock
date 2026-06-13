@@ -2,7 +2,7 @@
 - High-vis tic marks and exact minute alignment are what you need to barbecue one side for 45 seconds...    
 - Works with the LIDL $8 auto-setting clock.  
 - Prints proper size onto US 8.5x11 paper with ms-edge.  Download file, view in browser and print; don't print or view direct from github as errors will result.  
-- SVG is a text file language which specified shapes, text, positioning, color and more. Generate basic layout with AI and edit by hand.   
+- SVG is an editable text file language which specifies shapes, text, positioning, color and more. Generate basic layout with AI and edit by hand.   
 - Created using AI to create a coding example and to do the fancy geometry I don't feel like figuring out.  
   This code pasted back into AI with further requests for modification, for many iterations.  
   Asking AI for SVG code instead of a JPEG gives repeatability, fine control and an example of how to do this stuff in SVG!
