@@ -1,0 +1,185 @@
+<!-- this svg uses javascript to compose rulers on top and left.
+     When printed using ms-edge, scaling comes out perfectly on a paper page.
+     If scaling is off, adjust variable "SCALE_FOR_PRINT" below.
+     Written by saying "would this be great if I iterate javascript to produce SVG", then
+     telling AI to code an example, and other such things, not the least, dealing with scaling stuff.
+-->
+
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="8.5in" 
+     height="11in" 
+     viewBox="0 0 816 1056" 
+     style="background-color: #ffffff;">
+
+  <!-- begin custom code for what you want to draw
+       To deactivate, see javascript below search for "svgItem2"   -->
+  <style>.nested-square { stroke:#000; stroke-width:2; fill:none; }</style>
+  <g transform="translate(200, 200)"><g id="svgItem2">
+    <rect x="0"   y="0"   width="300" height="300" class="nested-square" />
+    <rect x="50"  y="50"  width="200" height="200" class="nested-square" />
+    <rect x="100" y="100" width="100" height="100" class="nested-square" />
+  </g></g>
+  <!-- END custom code for what you want to draw -->
+
+<style>
+    .ruler-line { stroke: #000000; stroke-width: 1; fill: none; }
+    .grid-line { stroke: #e0e0e0; stroke-width: 1; fill: none; }
+    .ruler-text { font-family: Arial, sans-serif; font-size: 10px; fill: #000000; text-anchor: middle; }
+    .left-text { text-anchor: start; }
+  </style>
+
+  <g id="grid-lines"></g>
+  <g id="top-ruler"></g>
+  <g id="left-ruler"></g>
+
+  <script type="text/javascript">
+    <![CDATA[
+    // CONFIGURATION VARIABLES
+    // hide svgItem2 by setting display "none". Uncomment to hide it. 
+    //document.querySelector("#svgItem2").style.display = "none";
+
+    // Fine-tune printer scaling calibration so printed size is exact cm.
+    const SCALE_FOR_PRINT = 1.10; 
+
+    // Toggle background 1 cm grid lines visibility (true/false)
+    const SHOW_GRID = true;
+    // END CONFIGURATION
+
+    // this code gets run when the whole page has loaded.
+    window.addEventListener('DOMContentLoaded', () => { 
+        console.log("style.display of item: " + document.querySelector("#svgItem2").style.display);
+        // now some AI bc I don't care so much to write it
+        let degrees = 0; 
+        document.querySelector("#svgItem2").style.transformOrigin = "center"; 
+        document.querySelector("#svgItem2").style.transformBox = "fill-box"; 
+        setInterval(() => {
+            degrees += 2; 
+            document.querySelector("#svgItem2").style.transform = `rotate(${degrees}deg)`;
+        }, 20);
+    });
+    // ==========================================
+    // CALCULATIONS & GENERATION
+    // ==========================================
+    
+    // 96 DPI conversion: 1 inch = 96 pixels. 1 inch = 2.54 cm.
+    // The SCALE_FOR_PRINT fine-tunes the physical size of the cm intervals.
+    const CM_TO_PX = (96 / 2.54) * SCALE_FOR_PRINT;
+    
+    // Page dimensions in inches converted to pixels
+    const pageWidth = 8.5 * 96;
+    const pageHeight = 11 * 96;
+
+    // Calculate maximum centimeters that fit on the page area
+    const maxCmWidth = Math.floor(pageWidth / CM_TO_PX);
+    const maxCmHeight = Math.floor(pageHeight / CM_TO_PX);
+
+    const svgNS = "http://www.w3.org/2000/svg";
+    const gridGroup = document.getElementById("grid-lines");
+    const topGroup = document.getElementById("top-ruler");
+    const leftGroup = document.getElementById("left-ruler");
+
+    // --- Helper function to create SVG elements ---
+    function createSVGElement(type, attributes) {
+        const element = document.createElementNS(svgNS, type);
+        for (let key in attributes) {
+            element.setAttribute(key, attributes[key]);
+        }
+        return element;
+    }
+
+    // --- Generate Top Ruler ---
+    for (let i = 0; i <= maxCmWidth * 10; i++) {
+        let cmValue = i / 10;
+        let xPosition = cmValue * CM_TO_PX;
+        
+        if (xPosition > pageWidth) break;
+
+        let tickLength = 5; 
+        
+        if (i % 10 === 0) {
+            tickLength = 15; 
+            
+            if (i > 0) {
+                let text = createSVGElement("text", {
+                    "x": xPosition,
+                    "y": 26,
+                    "class": "ruler-text"
+                });
+                text.textContent = Math.floor(cmValue);
+                topGroup.appendChild(text);
+
+                // Extend 1 cm intervals vertically across the view if configured
+                if (SHOW_GRID) {
+                    let verticalGrid = createSVGElement("line", {
+                        "x1": xPosition,
+                        "y1": 0,
+                        "x2": xPosition,
+                        "y2": pageHeight,
+                        "class": "grid-line"
+                    });
+                    gridGroup.appendChild(verticalGrid);
+                }
+            }
+        } else if (i % 5 === 0) {
+            tickLength = 10; 
+        }
+
+        let line = createSVGElement("line", {
+            "x1": xPosition,
+            "y1": 0,
+            "x2": xPosition,
+            "y2": tickLength,
+            "class": "ruler-line"
+        });
+        topGroup.appendChild(line);
+    }
+
+    // --- Generate Left Ruler ---
+    for (let i = 0; i <= maxCmHeight * 10; i++) {
+        let cmValue = i / 10;
+        let yPosition = cmValue * CM_TO_PX;
+
+        if (yPosition > pageHeight) break;
+
+        let tickLength = 5;
+
+        if (i % 10 === 0) {
+            tickLength = 15;
+            
+            if (i > 0) {
+                let text = createSVGElement("text", {
+                    "x": 20,
+                    "y": yPosition + 3, 
+                    "class": "ruler-text left-text"
+                });
+                text.textContent = Math.floor(cmValue);
+                leftGroup.appendChild(text);
+
+                // Extend 1 cm intervals horizontally across the view if configured
+                if (SHOW_GRID) {
+                    let horizontalGrid = createSVGElement("line", {
+                        "x1": 0,
+                        "y1": yPosition,
+                        "x2": pageWidth,
+                        "y2": yPosition,
+                        "class": "grid-line"
+                    });
+                    gridGroup.appendChild(horizontalGrid);
+                }
+            }
+        } else if (i % 5 === 0) {
+            tickLength = 10;
+        }
+
+        let line = createSVGElement("line", {
+            "x1": 0,
+            "y1": yPosition,
+            "x2": tickLength,
+            "y2": yPosition,
+            "class": "ruler-line"
+        });
+        leftGroup.appendChild(line);
+    }
+    ]]>
+  </script>
+</svg>
