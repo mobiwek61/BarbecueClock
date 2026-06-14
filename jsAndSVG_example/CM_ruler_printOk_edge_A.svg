@@ -2,6 +2,7 @@
 <!-- this svg uses javascript to compose rulers on top and left.
      When printed using ms-edge, scaling comes out perfectly on a paper page.
      If scaling is off, adjust variable "SCALING_TUNER" below.
+     Made using gemini 
 -->
 
 <svg xmlns="http://www.w3.org/2000/svg" 
