@@ -1,7 +1,7 @@
 #### An SVG file to print an easy-to-read clock dial for barbecuing.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="clock7.jpg" width="250">  
-clock7.pdf   
+clock7.jpg   
 - High-vis tic marks and exact minute alignment are what you need to get perfect timing when barbecuing.   
 - Works with the LIDL $8 auto-setting clock.  
 - Prints proper size onto US 8.5x11 paper with ms-edge.  Download file, view in browser and print; don't print or view direct from github as errors will result.  
